@@ -33,12 +33,12 @@ public:
 template <class T>
 Node<T>::Node(T data) {
 	this->data = data;
-	this->Next = this->Pre = nullptr;
+	this->Next = this->Pre = NULL;
 }
 
 template <class T>
 List<T>::List() {
-	this->Head = this->Tail = nullptr;
+	this->Head = this->Tail = NULL;
 	this->size = 0;
 }
 
@@ -55,8 +55,8 @@ void List<T>::InsertLast(T x) {
 		this->size++;
 		return;
 	}
-	this->Tail->Next = node;
 	node->Pre = this->Tail;
+	this->Tail->Next = node;
 	this->Tail = node;
 	this->size++;
 
@@ -64,8 +64,10 @@ void List<T>::InsertLast(T x) {
 
 template <class T>
 void List<T>::Show() {
-	while (this != nullptr) {
-		this->Head->data.show();
-		this->Head = this->Head->Next;
+	Node <T> *a = NULL;
+	a = this->Head;
+	while (a != NULL) {
+		a->data.show();
+		a = a->Next;
 	}
 }

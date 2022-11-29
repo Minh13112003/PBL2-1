@@ -24,9 +24,10 @@ istream& operator >> (istream& in, HangHoa& a) {
 	in >> a.soluong;
 	cout << "nhap gia ban: ";
 	in >> a.giaban;
+	cin.ignore();
 	return in;
 }
 
 void HangHoa::show() {
-	cout << a++ << ": " << tensp << setw(5) << soluong << setw(5) << giaban;
+	cout << a++ << ": " << setw(15)  << tensp << right << setw(15) << soluong << right << setw(15) << giaban << endl;
 }

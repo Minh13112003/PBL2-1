@@ -10,5 +10,9 @@ int main() {
 	List <HangHoa> a;
 	a.InsertLast((HangHoa) x);
 	a.Show();
+	HangHoa y;
+	cin >> y;
+	a.InsertLast((HangHoa) y);
+	a.Show();
 	
 }
