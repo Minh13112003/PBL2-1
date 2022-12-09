@@ -7,6 +7,7 @@
 using namespace std;
 
 class HangHoa {
+protected:
 	string tensp;
 	int soluong;
 	float giaban;

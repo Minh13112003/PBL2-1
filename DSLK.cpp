@@ -5,6 +5,7 @@ using namespace std;
 template < class T>
 struct Node
 {
+public:
 	T data;
 	Node* Next;
 	Node* Pre;
@@ -25,6 +26,7 @@ public:
 	~List();
 	void InsertLast(T);
 	void Show();
+	int LinearSearch(T);
 };
 
 
@@ -60,6 +62,20 @@ void List<T>::InsertLast(T x) {
 	this->Tail = node;
 	this->size++;
 
+}
+
+template <class T>
+int List<T>::LinearSearch(T data) {
+	int temp = 0;
+	Node<T>* a = this->Head;
+	while (a != NULL) {
+		if (a->data == data) {
+			return temp;
+		}
+		temp++;
+		a = a->Next;
+	}
+	return -1;
 }
 
 template <class T>
