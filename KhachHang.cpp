@@ -27,6 +27,7 @@ istream& operator >> (istream& in, KhachHang& a) {
 	in >> a.id;
 	in.ignore();
 	a.SetUpDate();
+	return in;
 }
 
 void KhachHang::show() {

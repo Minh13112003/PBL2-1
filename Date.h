@@ -10,7 +10,6 @@ protected:
 public:
 	virtual void SetUpDate() = 0;
 	virtual void PrintDate() = 0;
-	virtual ~Date();
 };
 #endif // !Date_H
 

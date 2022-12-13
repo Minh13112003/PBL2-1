@@ -1,3 +1,4 @@
+
 #pragma once
 #ifndef KhachHang_H
 #define KhachHang_H
@@ -10,7 +11,7 @@ protected:
 	float tiengui;
 public:
 	KhachHang();
-	~KhachHang();
+	~KhachHang(){}
 	friend istream& operator >> (istream&, KhachHang&);
 	void show();
 	virtual void PrintDate();
@@ -18,4 +19,5 @@ public:
 };
 
 #endif // !KhachHang_H
+
 
