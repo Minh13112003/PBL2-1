@@ -13,16 +13,17 @@ HoaDon::HoaDon() {
 }
 
 void HoaDon::Input(List<HangHoa>& a, List <HangHoa>& b) {
-	cin.ignore();
 	cout << "nhap id khach hang: ";
 	cin >> this->id;
+	cin.ignore();
 	cout << "nhap so tien khach gui: ";
 	cin >> this->tiengui;
 	bool e = 1;
 	while (e == 1) {
+		cin.ignore();
 		cout << "nhap ten san pham muon mua: ";
 		getline(cin, this->tensp);
-		if (LinearSearch(a, tensp) != 1) {
+		if (LinearSearch(a, tensp) != -1) {
 			cout << "nhap so luong: ";
 			cin >> this->soluong;
 			cin.ignore();
@@ -34,6 +35,7 @@ void HoaDon::Input(List<HangHoa>& a, List <HangHoa>& b) {
 			cout << "ban co muon tiep tuc mua khong: 1(co),0(khong): ";
 			cin >> e;
 		}
+		else cout << "eu co hang nha ma" << endl;
 	}
 }
 
@@ -45,9 +47,9 @@ void HoaDon::show( List <HangHoa> b) {
 		c->data.show();
 		c = c->Next;
 	}
-	cout << "-------------------------------------------------------------------------";
-	cout << "Tong tien: " << right << setw(45) << this->tongtien<< endl;
-	cout << "Tien khach gui: " << right << setw(45) << this->tiengui << endl;
-	cout << "So tien tra lai: " << right << setw(45) << tiengui - tongtien;
+	cout << "-------------------------------------------------------------------------" << endl;
+	cout << "Tong tien: " << right << setw(37) << this->tongtien<< endl;
+	cout << "Tien khach gui: " << right << setw(32) << this->tiengui << endl;
+	cout << "So tien tra lai: " << right << setw(31) << tiengui - tongtien;
 
 }
