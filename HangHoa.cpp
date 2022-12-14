@@ -25,10 +25,10 @@ void HangHoa::Input(List<HangHoa>& a,List<HangHoa> &b) {
 }
 */
 
-int LinearSearch(List<HangHoa> a,string tensp) {
+int LinearSearch(List<HangHoa> a, string tensp) {
 	int temp = 0;
 	Node<HangHoa>* b = a.GetHead();
-	while (b != NULL ) {
+	while (b != NULL) {
 		if (b->data.tensp == tensp) {
 			return temp;
 		}
@@ -38,11 +38,11 @@ int LinearSearch(List<HangHoa> a,string tensp) {
 	return -1;
 }
 
-void ChangeSoluong(List<HangHoa> &a,string tensp, int i) 
+void ChangeSoluong(List<HangHoa>& a, string tensp, int i)
 {
 	Node <HangHoa>* b = a.GetHead();
 	while (b != NULL) {
-		if ( b->data.tensp == tensp) {
+		if (b->data.tensp == tensp) {
 			if (b->data.soluong >= i) {
 				b->data.soluong -= i;
 				break;
@@ -72,7 +72,7 @@ HangHoa::HangHoa() {
 	this->giaban = 0;
 }
 
-HangHoa::HangHoa(string tensp,int soluong,float giaban) {
+HangHoa::HangHoa(string tensp, int soluong, float giaban) {
 	this->a = 0;
 	this->tensp = tensp;
 	this->soluong = soluong;
@@ -80,8 +80,8 @@ HangHoa::HangHoa(string tensp,int soluong,float giaban) {
 }
 
 istream& operator >> (istream& in, HangHoa& a) {
-	cout << "nhap ten sp: "; 
-	getline(in,a.tensp);
+	cout << "nhap ten sp: ";
+	getline(in, a.tensp);
 	cout << "nhap so luong: ";
 	in >> a.soluong;
 	cout << "nhap gia ban: ";
@@ -91,5 +91,5 @@ istream& operator >> (istream& in, HangHoa& a) {
 }
 
 void HangHoa::show() {
-	cout << a++ << ": " << setw(15)  << tensp << right << setw(15) << soluong << right << setw(15) << giaban << endl;
+	cout << a++ << ": " << setw(15) << tensp << right << setw(15) << soluong << right << setw(15) << giaban << endl;
 }
