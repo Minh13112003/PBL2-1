@@ -1,9 +1,5 @@
 #include "HangHoa.h"
-#include <iostream>
-#include <string>
-#include <iomanip>
-
-using namespace std;
+int HangHoa::a = 1;
 /*
 void HangHoa::Input(List<HangHoa>& a,List<HangHoa> &b) {
 	cin.ignore();
@@ -93,3 +89,78 @@ istream& operator >> (istream& in, HangHoa& a) {
 void HangHoa::show() {
 	cout << a++ << ": " << setw(15) << tensp << right << setw(15) << soluong << right << setw(15) << giaban << endl;
 }
+void HangHoa::ghiFile(List<HangHoa> l)
+{
+	ofstream output("file.txt");
+	Node<HangHoa>* a = NULL;
+	a = l.GetHead();
+	if (a != NULL)
+	{
+			output << a->getData().tensp << " / " << a->getData().soluong << " / " << a->getData().giaban << " ///" << endl;
+	}
+	output.close();
+}
+void HangHoa::docFile(List<HangHoa> &l)
+{
+	string str[2000];
+	ifstream input("file.txt");
+	string s;
+	int n = 0;
+	int count = 0;
+	while (input >> s)
+	{
+		if (count != 3) {
+
+			++count;
+		}
+		else {
+
+			count = 0;
+		}
+		str[n] = s;
+		n++;
+	}
+	input.close();
+	int temp = 0;
+	string stt, ten;
+	int sl;
+	float gia;
+	for (int i = 0; i < n; i++)
+	{
+		if (str[i] == "/" && temp != 2)
+		{
+			temp++;
+		}
+		else if (temp == 2)
+		{
+			gia = stof(str[i]);
+			i++;
+			temp = 0;
+			HangHoa hangHoa(ten, sl, gia);
+			l.InsertLast(hangHoa);
+			if (str[i] == "///")
+			{
+				ten = "";
+				sl = 0;
+				gia = 0;
+			}
+			continue;
+		}
+		else if (str[i] != "/" && temp == 0)
+		{
+			while (str[i] != "/")
+			{
+				ten = ten + str[i] + " ";
+				i++;
+			}
+			ten.pop_back();
+			i--;
+		}
+
+		else if (str[i] != "/" && temp == 1)
+		{
+			sl = stoi(str[i]);
+		}
+	}
+}
+

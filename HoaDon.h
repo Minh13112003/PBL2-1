@@ -3,15 +3,14 @@
 #define HoaDon_H
 #include "KhachHang.h"
 #include "Hanghoa.h"
-#include "DSLK.H"
-#include <string>
-
 using namespace std;
 
-class HoaDon :public KhachHang,public HangHoa{
+class HoaDon :public KhachHang, public HangHoa {
 	static int count;
+	float tongtien;
 public:
-	void Input(List<HangHoa>&, List<HangHoa> &);
+	HoaDon();
+	void Input(List<HangHoa>&, List<HangHoa>&);
 	void show(List <HangHoa>);
 	void capnhatdulieu();
 
@@ -19,4 +18,5 @@ public:
 
 
 #endif // !HoaDon_H
+
 

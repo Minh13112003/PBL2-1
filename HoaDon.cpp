@@ -1,10 +1,4 @@
-#include <iomanip>
-#include <iostream>
 #include "HoaDon.h"
-#include <string>
-
-using namespace std;
-
 int HoaDon::count = 1;
 
 

@@ -1,21 +1,21 @@
 #include "DSLK.H"
 #include "Hanghoa.h"
-#include <iostream>
 #include "HoaDon.h"
-
-using namespace std;
-
 int main() {
 	HoaDon z;
 	int k;
 	string c;
 	HangHoa x, y;
 	List <HangHoa> a,temp;
-	cin >> x;
+	List<HangHoa> l;
+	x.docFile(l);
+	l.Show();
+	system("pause");
+	/*cin >> x;
 	cout << endl;
 	cin >> y;
 	a.InsertLast(x);
-	a.InsertLast(y);
+	a.InsertLast(y);*/
 	a.Show();
 	/*
 	for (int i = 0; i <= 1; i++) {
@@ -36,7 +36,7 @@ int main() {
 	*/
 	z.Input(a, temp);
 	z.show(temp);
-
+	x.ghiFile(l);
 
 	return 0;
 }

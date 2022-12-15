@@ -1,9 +1,4 @@
-#include <iostream>
-#include <iomanip>
 #include "KhachHang.h"
-
-using namespace std;
-
 KhachHang::KhachHang() {
 	this->ngay = "00/00/00";
 	this->thoigian = "00:00:00";
@@ -18,7 +13,7 @@ void KhachHang::SetUpDate() {
 }
 
 void KhachHang::PrintDate() {
-	cout << "ngay: "  << this->ngay << endl;
+	cout << "ngay: " << this->ngay << endl;
 	cout << "thoi gian: " << this->thoigian << endl;
 }
 

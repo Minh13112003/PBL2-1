@@ -1,8 +1,7 @@
 #pragma once
 #ifndef Date_H
 #define Date_H
-#include <string>
-using namespace std;
+#include "Mylib.h"
 class Date {
 protected:
 	string ngay;

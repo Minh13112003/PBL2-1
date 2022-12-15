@@ -1,9 +1,7 @@
 #pragma once
 #ifndef DSLK_H
 #define DSLK_H
-#include <iostream>
-#include <string>
-using namespace std;
+#include"Mylib.h"
 template <class T>
 struct Node
 {
@@ -13,8 +11,11 @@ struct Node
 	Node(T data);
 	Node CreateNode(T);
 	Node();
+	T getData()
+	{
+		return data;
+	}
 };
-
 template <class T>
 class List {
 
@@ -155,6 +156,7 @@ Node<T>* List<T>::GetHead()
 {
 	return this->Head;
 }
-
 #endif // !DSLK.H
+
+
 
