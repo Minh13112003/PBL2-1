@@ -21,6 +21,26 @@ void HangHoa::Input(List<HangHoa>& a,List<HangHoa> &b) {
 }
 */
 
+void HangHoa::Setsoluong(int k) {
+	this->soluong = k;
+}
+
+int HangHoa::Getsoluong() {
+	return this->soluong;
+}
+
+long HangHoa::Getgiaban() {
+	return this->giaban;
+}
+
+void HangHoa::Setgiaban(long k) {
+	this->giaban = k;
+}
+
+string HangHoa::Gettensp() {
+	return this->tensp;
+}
+
 int LinearSearch(List<HangHoa> a, string tensp) {
 	int temp = 0;
 	Node<HangHoa>* b = a.GetHead();
@@ -43,13 +63,26 @@ void ChangeSoluong(List<HangHoa>& a, string tensp, int i)
 				b->data.soluong -= i;
 				break;
 			}
-			else throw "so hang ko du!";
+			else cout << "so hang ko du!";
 		}
 		b = b->Next;
 	}
 }
 
-float Getgiaban(List<HangHoa> a, string tensp) {
+bool checksoluong(List<HangHoa> a, string tensp, int i) {
+	Node <HangHoa>* b = a.GetHead();
+	while (b != NULL) {
+		if (b->data.tensp == tensp) {
+			if (b->data.soluong < i) {
+				return 0;
+			}
+		}
+		b = b->Next;
+	}
+	return 1;
+}
+
+long Getgiaban1(List<HangHoa> a, string tensp) {
 	Node <HangHoa>* b = a.GetHead();
 	while (b != NULL) {
 		if (b->data.tensp == tensp) {
@@ -68,7 +101,7 @@ HangHoa::HangHoa() {
 	this->giaban = 0;
 }
 
-HangHoa::HangHoa(string tensp, int soluong, float giaban) {
+HangHoa::HangHoa(string tensp, int soluong, long giaban) {
 	this->a = 0;
 	this->tensp = tensp;
 	this->soluong = soluong;
@@ -87,7 +120,7 @@ istream& operator >> (istream& in, HangHoa& a) {
 }
 
 void HangHoa::show() {
-	cout << a++ << ": " << setw(15) << tensp << right << setw(15) << soluong << right << setw(15) << giaban << endl;
+	cout << a++ << ": " << setw(15) << tensp << right << setw(15) <<  soluong << right << setw(15) << fixed << setprecision(5) << giaban  << endl;
 }
 void HangHoa::ghiFile(List<HangHoa> l)
 {
@@ -102,7 +135,7 @@ void HangHoa::ghiFile(List<HangHoa> l)
 }
 void HangHoa::docFile(List<HangHoa> &l)
 {
-	string str[2000];
+	string str[200];
 	ifstream input("file.txt");
 	string s;
 	int n = 0;
@@ -124,7 +157,7 @@ void HangHoa::docFile(List<HangHoa> &l)
 	int temp = 0;
 	string stt, ten;
 	int sl;
-	float gia;
+	long gia;
 	for (int i = 0; i < n; i++)
 	{
 		if (str[i] == "/" && temp != 2)

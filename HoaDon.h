@@ -7,7 +7,7 @@ using namespace std;
 
 class HoaDon :public KhachHang, public HangHoa {
 	static int count;
-	float tongtien;
+	long tongtien;
 public:
 	HoaDon();
 	void Input(List<HangHoa>&, List<HangHoa>&);
