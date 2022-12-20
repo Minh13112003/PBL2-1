@@ -1,25 +1,6 @@
 #include "HangHoa.h"
 int HangHoa::a = 1;
-/*
-void HangHoa::Input(List<HangHoa>& a,List<HangHoa> &b) {
-	cin.ignore();
-	cout << "nhap id khach hang: ";
-	cin >> this->id;
-	int e = 1;
-	while (e == 1) {
-		cout << "nhap ten san pham muon mua: ";
-		getline(cin, this->tensp);
-		if (LinearSearch(a, tensp) != 1) {
-			cout << "nhap so luong: ";
-			cin >> this->soluong;
-			ChangeSoluong(a, this->tensp, this->soluong);
-			this->giaban = this->soluong * Getgiaban(a, tensp);
-			HangHoa temp(this->tensp, this->soluong, this->giaban);
-			b.InsertLast(temp);
-		}
-	}
-}
-*/
+
 
 void HangHoa::Setsoluong(int k) {
 	this->soluong = k;
@@ -95,6 +76,7 @@ long Getgiaban1(List<HangHoa> a, string tensp) {
 
 
 HangHoa::HangHoa() {
+	this->gianhap = 0;
 	this->a = 0;
 	this->tensp = " ";
 	this->soluong = 0;
@@ -106,6 +88,7 @@ HangHoa::HangHoa(string tensp, int soluong, long giaban) {
 	this->tensp = tensp;
 	this->soluong = soluong;
 	this->giaban = giaban;
+	this->gianhap = 0;
 }
 
 istream& operator >> (istream& in, HangHoa& a) {
@@ -115,6 +98,8 @@ istream& operator >> (istream& in, HangHoa& a) {
 	in >> a.soluong;
 	cout << "nhap gia ban: ";
 	in >> a.giaban;
+	cout << "nhap gia nhap: ";
+	in >> a.gianhap;
 	cin.ignore();
 	return in;
 }

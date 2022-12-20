@@ -13,7 +13,8 @@ void HoaDon::Input(List<HangHoa>& a, List <HangHoa>& b) {
 	cout << "nhap so tien khach gui: ";
 	cin >> this->tiengui;
 	bool e = 1;
-label:	while (e == 1) {
+	try {
+	label:	while (e == 1) {
 		cin.ignore();
 		cout << "nhap ten san pham muon mua: ";
 		getline(cin, this->tensp);
@@ -21,7 +22,7 @@ label:	while (e == 1) {
 			cout << "nhap so luong: ";
 			cin >> this->soluong;
 			if (checksoluong(a, tensp, soluong) == 0) {
-				cout << "san pham cua ban da het so luong!" << endl;
+				throw "san pham cua ban da het so luong!";
 				cout << "ban co muon tiep tuc mua khong: 1(co),0(khong): ";
 				cin >> e;
 				goto label;
@@ -30,12 +31,13 @@ label:	while (e == 1) {
 			tongtien += giaban;
 			if (tiengui < tongtien) {
 				tongtien -= giaban;
-				cout << "so tien ban ko du de mua san pham nay! " << endl;
+				throw "so tien ban ko du de mua san pham nay! ";
 				cout << "ban co muon tiep tuc mua khong: 1(co),0(khong): ";
 				cin >> e;
 				goto label;
 			}
 			ChangeSoluong(a, tensp, soluong);
+			
 			Node <HangHoa>* c = b.GetHead();
 			while (c != NULL) {
 				if (c->getData().Gettensp() == tensp) {
@@ -53,7 +55,11 @@ label:	while (e == 1) {
 			cin >> e;
 
 		}
-		else cout << "da het hang" << endl;
+		else throw "da het hang !";
+	}
+	}
+	catch (const char* temp) {
+		cerr << temp << endl;
 	}
 }
 
@@ -69,7 +75,7 @@ void HoaDon::show( List <HangHoa> b) {
 	}
 	cout << "-------------------------------------------------------------------------" << endl;
 	cout << "Tong tien: " << right << setw(37) << this->tongtien << endl;
-	cout << "Tien khach gui: " << right << setw(32) << fixed << this->tiengui << endl;
-	cout << "So tien tra lai: " << right << setw(31)  << fixed << setprecision(5) << (tiengui - tongtien) << endl;
+	cout << "Tien khach gui: " << right << setw(32)  << this->tiengui << endl;
+	cout << "So tien tra lai: " << right << setw(31)  << (tiengui - tongtien) << endl;
 	delete[] c;
 }

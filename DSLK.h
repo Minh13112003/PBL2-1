@@ -11,11 +11,13 @@ struct Node
 	Node(T data);
 	Node CreateNode(T);
 	Node();
+	void Show();
 	T getData()
 	{
 		return data;
 	}
 };
+
 template <class T>
 class List {
 
@@ -37,6 +39,11 @@ public:
 	int LinearSearch(T);
 	Node<T>* GetHead();
 };
+
+template <class T>
+void Node<T>::Show() {
+	this->data.show();
+}
 
 template <class T>
 Node<T>::Node(T data)

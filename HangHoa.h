@@ -12,10 +12,10 @@ protected:
 	int soluong;
 	long giaban;
 	static int a;
+	long gianhap;
 public:
 	HangHoa();
 	HangHoa(string, int, long);
-	//void Input(List<HangHoa>&,List<HangHoa>&);
 	void show();
 	int Getsoluong();
 	void Setsoluong(int);

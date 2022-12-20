@@ -5,7 +5,7 @@
 class KhachHang : public Date {
 protected:
 	string id;
-	float tiengui;
+	long tiengui;
 public:
 	KhachHang();
 	~KhachHang() {}
