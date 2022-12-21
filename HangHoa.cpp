@@ -1,6 +1,12 @@
 #include "HangHoa.h"
 int HangHoa::a = 1;
 
+long HangHoa::Getgianhap() {
+	return this->gianhap;
+}
+void HangHoa::Setgianhap(long gianhap) {
+	this->gianhap = gianhap;
+}
 
 void HangHoa::Setsoluong(int k) {
 	this->soluong = k;
@@ -20,6 +26,17 @@ void HangHoa::Setgiaban(long k) {
 
 string HangHoa::Gettensp() {
 	return this->tensp;
+}
+
+long Getgianhap1(List <HangHoa> a, string tensp) {
+	Node <HangHoa>* b = a.GetHead();
+	while (b != NULL) {
+		if (b->data.tensp == tensp) {
+			return b->data.gianhap;
+		}
+		b = b->Next;
+	}
+	return -1;
 }
 
 int LinearSearch(List<HangHoa> a, string tensp) {
@@ -74,6 +91,17 @@ long Getgiaban1(List<HangHoa> a, string tensp) {
 	return -1;
 }
 
+long long chiphinhapkho(List<HangHoa> a) {
+	long long k = 0;
+	Node <HangHoa>* b = a.GetHead(); 
+	while( b != NULL)
+	{
+		k += b->data.Getgianhap();
+		b = b->Next;
+	}
+	return k;
+}
+
 
 HangHoa::HangHoa() {
 	this->gianhap = 0;
@@ -83,12 +111,12 @@ HangHoa::HangHoa() {
 	this->giaban = 0;
 }
 
-HangHoa::HangHoa(string tensp, int soluong, long giaban) {
+HangHoa::HangHoa(string tensp, int soluong, long giaban,long gianhap) {
 	this->a = 0;
 	this->tensp = tensp;
 	this->soluong = soluong;
 	this->giaban = giaban;
-	this->gianhap = 0;
+	this->gianhap = gianhap;
 }
 
 istream& operator >> (istream& in, HangHoa& a) {
@@ -105,7 +133,11 @@ istream& operator >> (istream& in, HangHoa& a) {
 }
 
 void HangHoa::show() {
-	cout << a++ << ": " << setw(15) << tensp << right << setw(15) <<  soluong << right << setw(15) << fixed << setprecision(5) << giaban  << endl;
+	cout << a++ << ": " << setw(15) << tensp << right << setw(15) <<  soluong << right << setw(15) << setprecision(5) << giaban  << endl;
+}
+
+void HangHoa::show_gianhap() {
+	cout << a++ << ": " << setw(15) << tensp << right << setw(15) << soluong << right << setw(15) << setprecision(5) << gianhap << right << setw(15) << setprecision(5)<< giaban<< endl;
 }
 void HangHoa::ghiFile(List<HangHoa> l)
 {
@@ -154,7 +186,7 @@ void HangHoa::docFile(List<HangHoa> &l)
 			gia = stof(str[i]);
 			i++;
 			temp = 0;
-			HangHoa hangHoa(ten, sl, gia);
+			HangHoa hangHoa(ten, sl, gia,gianhap); //sua cho nay
 			l.InsertLast(hangHoa);
 			if (str[i] == "///")
 			{

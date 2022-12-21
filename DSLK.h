@@ -27,9 +27,11 @@ private:
 	Node<T>* Tail;
 
 public:
+	int Getsize();
 	List();
 	~List();
 	void InsertLast(T);
+	void DeleteLast();
 	T doc_file_node(const char*);
 	void Show();
 	void Input(const char*);
@@ -37,8 +39,15 @@ public:
 	friend istream& operator >> (istream& in, Node<T>&);
 	friend class Hanghoa;
 	int LinearSearch(T);
+	Node<T>* GetTail();
 	Node<T>* GetHead();
+	void SetHead(Node<T>*);
+	void SetTail(Node <T> *);
 };
+template <class T>
+int List<T> ::Getsize() {
+	return this->size;
+}
 
 template <class T>
 void Node<T>::Show() {
@@ -79,6 +88,14 @@ List<T>::~List() {
 
 }
 
+template <class T> 
+void List<T>::DeleteLast() {
+	Node <T> *p = this->Tail->Pre;
+	Node <T>* temp = this->Tail;
+	p->Next = NULL;
+	this->Tail = p;
+	delete[] temp;
+}
 
 template <class T>
 void List<T>::InsertLast(T x) {
@@ -95,6 +112,7 @@ void List<T>::InsertLast(T x) {
 	this->size++;
 
 }
+
 
 template <class T>
 T List<T>::doc_file_node(const char* file)
@@ -163,7 +181,19 @@ Node<T>* List<T>::GetHead()
 {
 	return this->Head;
 }
-#endif // !DSLK.H
+template <class T>
+Node <T>* List <T>::GetTail() {
+	return this->Tail;
+}
+template <class T>
+void List<T>::SetTail(Node<T> *a) {
+	*Tail = *a;
+}
+template <class T>
+void List<T>::SetHead(Node <T>* a) {
+	*Head = *a;
+}
+#endif 
 
 
 

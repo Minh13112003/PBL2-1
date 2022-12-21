@@ -2,10 +2,11 @@
 #include "Hanghoa.h"
 #include "HoaDon.h"
 int main() {
-	List <List<HangHoa>> k;
-	HoaDon z;
+	List <HoaDon> HD;
+	string id = "";
+	HoaDon z,w;
 	string c;
-	HangHoa x, y;
+	HangHoa x, y,hanghoa1,hanghoa2;
 	List <HangHoa> a,temp;
 	List<HangHoa> l;
 	cin >> x;
@@ -13,9 +14,14 @@ int main() {
 	a.InsertLast(x);
 	a.InsertLast(y);
 	a.Show();
-	z.Input(a, temp);
-	z.show(temp);
-	Node <List<HangHoa>> *c = k.GetHead();
+	z.Input(a);
+	z.show();
+	HD.InsertLast(z);
+	w.Input(a);
+	w.show();
+	HD.InsertLast(w);
+	show_gianhap(HD,a);
+	
 
 	return 0;
 }

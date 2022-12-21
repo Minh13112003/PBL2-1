@@ -8,12 +8,15 @@ using namespace std;
 class HoaDon :public KhachHang, public HangHoa {
 	static int count;
 	long tongtien;
+	long tongtiennhap;
+	List <HangHoa> HD;
 public:
+	string getid();
 	HoaDon();
-	void Input(List<HangHoa>&, List<HangHoa>&);
-	void show(List <HangHoa>);
-	friend void Search(List<HoaDon>, List<List<HangHoa>>);
-	void capnhatdulieu();
+	void Input(List<HangHoa>&);
+	void show();
+	void output();
+	friend void show_gianhap(List <HoaDon> &,List <HangHoa> );
 
 };
 
